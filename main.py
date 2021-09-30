@@ -1,8 +1,10 @@
 import random
 import pandas as pd
-import numpy as np
+import time
+import datetime as dt
 
-random.seed("DGR")
+fl_time = time.time()
+random.seed(fl_time)
 
 str_path = "siste_transaksjoner.xlsx"    # Relative path
 str_name_col = "Forklaring"
@@ -19,6 +21,7 @@ for _index, row in df_kontoutskrift.iterrows():
     fl_payments += float(row[str_amount_col])
     list_entries.extend([str_entree_name] * int_entree_ticket_amount)
 
+print(dt.datetime.fromtimestamp(fl_time))
 print(fl_payments)
 print(random.choice(list_entries))
 print(random.choice(list_entries))
