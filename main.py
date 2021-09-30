@@ -19,7 +19,7 @@ for _index, row in df_kontoutskrift.iterrows():
     str_entree_name = row[str_name_col]
     int_entree_ticket_amount = int(row[str_amount_col] // fl_entry_cost)
     fl_payments += float(row[str_amount_col])
-    list_entries.extend([str_entree_name] * int_entree_ticket_amount)
+    list_entries.extend([[str_entree_name, int_entree_ticket_amount]] * int_entree_ticket_amount)
 
 print(dt.datetime.fromtimestamp(fl_time))
 print(fl_payments)
